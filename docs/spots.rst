@@ -9,18 +9,18 @@ Overview
 --------
 
 A FaaSpot spot is a `VM <https://en.wikipedia.org/wiki/Virtual_machine>`_ that can run your functions.
-You can run multiple concurrent functions on one spot, but still,
-the more spots that you'll have - the more concurrent functions you'll be able to run.
+You can run multiple concurrent functions on one spot. Nevertheless,
+the more spots that you have, the more concurrent functions you'll be able to run.
 
 The cool thing about FaaSpot, is that you pay for each spot that you have,
-regardless to the amount of functions that you run on it.
+regardless to the number of functions that you run on it.
 Having said that, to run a function in FaaSpot you will need at least one FaaSpot spot.
 
 
 .. _add_spot:
 
-Add Spot
---------
+Add a Spot
+----------
 
 To add a spot to your spot's pool, you need to use the spots API:
 
@@ -59,21 +59,21 @@ To add a spot to your spot's pool, you need to use the spots API:
 .. note::
     What is the ``wait`` argument?
 
-    By default, requests run in the background, in async manner.
-    Which mean that the request will return execution id.
-    You can then check that execution status (completed or not), using the execution id.
+    By default, requests run in the background, in a synchronized manner.
+    This means that the request will return the execution ID.
+    You can then check that execution status (completed or not), using the execution ID.
 
-    When using the FaaSpot client, you can run the command in a synced manner (wait until you'll have a response),
+    When using the FaaSpot client, you can run the command in a synced manner (wait until you receive a response),
     using the ``wait`` argument.
 
-    When using the HTTP request to add spot, you'll need to check the execution status manually.
+    When using the HTTP request to add a spot, you'll need to check the execution status manually.
     To see how to do it, go to the :ref:`executions <get_execution_status>` page.
 
 
 List Spots
 ----------
 
-To get a list of all the spots that you have, you need to use the spots list API:
+To retrieve a list of all the spots that you have, use the spots list API:
 
 
 ..  admonition:: CLI
@@ -108,10 +108,10 @@ To get a list of all the spots that you have, you need to use the spots list API
        $ curl -X GET --header "Authorization: Token MY_TOKEN" https://dev.faaspot.com:443/api/spots/
 
 
-Remove Spot
------------
+Remove a Spot
+-------------
 
-To add a spot to your spot's pool, you need to use the spots API:
+To remove a spot from your spot's pool, you need to use the spots API:
 
 
 ..  admonition:: CLI
@@ -139,37 +139,37 @@ To add a spot to your spot's pool, you need to use the spots API:
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can remove one spot from your spots pool using the direct HTTP requests:
+    You can remove one spot from your spots pool using a direct HTTP request:
 
     .. code-block:: sh
 
        $ curl -X DELETE --header "Authorization: Token MY_TOKEN" https://api.faaspot.com/v1/spots/
 
-    This API will return the execution id of the spot removal task.
-    If you want to get the execution status of that task, you will need to query the execution status.
+    This API will return the execution ID of the spot removal task.
+    To get the execution status of that task, you will need to query the execution status.
     You can see how to do it in the :ref:`executions <get_execution_status>` page.
 
 .. note::
     What is the ``wait`` argument?
 
-    By default, requests run in the background, in async manner.
-    Which mean that the request will return execution id.
-    You can then check that execution status (completed or not), using the execution id.
+    By default, requests run in the background, in a synchronized manner.
+    This means that the request will return the execution ID.
+    You can then check that execution status (completed or not), using the execution ID.
 
-    When using the FaaSpot client, you can run the command in a synced manner (wait until you'll have a response),
+    When using the FaaSpot client, you can run the command in a synced manner (wait until you receive a response),
     using the ``wait`` argument.
 
-    When using the HTTP request to add spot, you'll need to check the execution status manually.
+    When using the HTTP request to remove a spot, you'll need to check the execution status manually.
     To see how to do it, go to the :ref:`executions <get_execution_status>` page.
 
 
-Refresh Spots Ip
-----------------
+Refresh a Spot IP Address
+-------------------------
 
 The spots are actual VMs, with a public IP address.
-Sometimes there is a need to give the spots a new IP.
-Not a specific IP, just a different one.
-You can do it with FaaSpot refresh_ip request.
+Sometimes, there is a need to give the spots a new IP,
+not a specific IP, just a different one.
+You can do it using a FaaSpot refresh_ip request.
 
 
 ..  admonition:: CLI
@@ -183,7 +183,7 @@ You can do it with FaaSpot refresh_ip request.
 
     The refresh_ip command parameters:
 
-    - (Optional) **- -ip** Specify which spot ip to refresh. Default is to refresh all spots ips.
+    - (Optional) **- -ip** Specifies which spot IP to refresh. Default is to refresh all spots IPs.
 
     - (Optional) **- -wait** Boolean parameter, whether to wait for completion. Default is False.
 
@@ -201,7 +201,7 @@ You can do it with FaaSpot refresh_ip request.
 
     The refresh_ip command parameters:
 
-    - (Optional) **ip** Specify which spot ip to refresh. Default is to refresh all spots ips.
+    - (Optional) **ip** Specifies which spot IP to refresh. Default is to refresh all spots IPs.
 
     - (Optional) **wait** Boolean parameter, whether to wait for completion. Default is False.
 
@@ -217,6 +217,6 @@ You can do it with FaaSpot refresh_ip request.
        $ curl -X PATCH --header "Authorization: Token MY_TOKEN" https://api.faaspot.com/v1/spots/ \
        --data '{"refresh_ip": "SPOT_IP_TO_REFRESH"}'
 
-    This API will return the execution id of the spot refresh_ip task.
-    If you want to get the execution status of that task, you will need to query the execution status.
+    This API will return the execution ID of the spot refresh_ip task.
+    To get the execution status of that task, you will need to query the execution status.
     You can see how to do it in the :ref:`executions <get_execution_status>` page.

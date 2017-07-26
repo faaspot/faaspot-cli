@@ -7,10 +7,10 @@ Executions
 Overview
 --------
 
-When you run some command in non-blocking way, for example: :ref:`deployment run<run_deployment>`,
-the command will create execution that will run in the background,
-and the result of the API will be the execution id.
-You can then use the executions API to get the execution status or to see which executions are currently running.
+When you run some command in a non-blocking way, for example: :ref:`deployment run<run_deployment>`,
+the command will create an execution that will run in the background,
+and the result of the API will be the execution ID.
+You can then use the executions API to retrieve the execution status, or to see which executions are currently running.
 
 
 .. _get_execution_status:
@@ -18,13 +18,13 @@ You can then use the executions API to get the execution status or to see which 
 Get Execution Status
 --------------------
 
-To get the status of some execution, you need to use the spots API:
+To get the status of an execution, you need to use the spots API:
 
 
 ..  admonition:: CLI
     :class: open-toggle
 
-    You can get the status of some execution using the CLI:
+    You can get the status of an execution using the CLI:
 
     .. code-block:: sh
 
@@ -34,7 +34,7 @@ To get the status of some execution, you need to use the spots API:
 ..  admonition:: Python
     :class: toggle
 
-    You can get the status of some execution sing the python-client:
+    You can get the status of an execution using the python-client:
 
     .. code-block:: python
 
@@ -46,13 +46,13 @@ To get the status of some execution, you need to use the spots API:
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can get the status of some execution using the direct HTTP requests:
+    You can get the status of an execution using direct HTTP requests:
 
     .. code-block:: sh
 
        $ curl -X GET --header "Authorization: Token MY_TOKEN" https://api.faaspot.com/v1/executions/EXECUTION_ID
 
-A result of that api should look like that:
+A result of the API should look as follows:
 
     {
         u'created': u'2017-07-21 15:10:52.537686+00:00',
@@ -69,27 +69,25 @@ A result of that api should look like that:
 
 
 .. note::
-    The CLI and the python-client support the ``wait`` argument.
-
-    Meaning, that using ``fas executions get EXECUTION_ID --wait`` or using ``faaspot.executions.get(EXECUTION_ID, wait=True)``,
+    The CLI and the python-client support the ``wait`` argument, meaning that using ``fas executions get EXECUTION_ID --wait`` or using ``faaspot.executions.get(EXECUTION_ID, wait=True)``,
     will wait until the execution is completed.
 
 
 Get Bulk Execution Status
 -------------------------
 
-Sometimes you have multiple executions that are running simultaneity.
-In that case, you may want to query the status of all of them using one request,
-instead of generation ``execution get`` request for each one of them separately.
-For that there is the ``execution get_bulk`` command.
+Sometimes, you have multiple executions running simultaneously.
+In that case, you might want to query the status of all of them using a single request,
+instead of generating an ``execution get`` request for each of the exceutions separately.
+You can achieve that using the ``execution get_bulk`` command.
 
-The results will be a list of execution-status.
+The results will be a list of execution-statuses.
 
 
 ..  admonition:: CLI
     :class: open-toggle
 
-    You can get the status of multiple executions using the CLI:
+    You can retrieve the statuses of multiple executions using the CLI:
 
     .. code-block:: sh
 
@@ -99,7 +97,7 @@ The results will be a list of execution-status.
 ..  admonition:: Python
     :class: toggle
 
-    You can get the status of multiple executions sing the python-client:
+    You can retrieve the statuses of multiple executions using the python-client:
 
     .. code-block:: python
 
@@ -111,7 +109,7 @@ The results will be a list of execution-status.
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can get the status of multiple executions using the direct HTTP requests:
+    You can retrieve the statuses of multiple executions using direct HTTP requests:
 
     .. code-block:: sh
 
@@ -120,16 +118,16 @@ The results will be a list of execution-status.
 
 
 
-Get Executions list
+Get Executions List
 -------------------
 
-To get the current running executions
+To retrieve a list of the current running executions.
 
 
 ..  admonition:: CLI
     :class: open-toggle
 
-    You can get the current running executions using the CLI:
+    You can retrieve a list of the current running executions using the CLI:
 
     .. code-block:: sh
 
@@ -137,13 +135,13 @@ To get the current running executions
 
     The executions status command parameters:
 
-    - (Optional) **--include_completed** Boolean parameter, whether to include completed executions. Default is False.
+    - (Optional) **--include_completed** Boolean parameter. Whether to include completed executions. Default is False.
 
 
 ..  admonition:: Python
     :class: toggle
 
-    You can get the current running executions using the python-client:
+    You can retrieve a list of the current running executions using the python-client:
 
     .. code-block:: python
 
@@ -153,17 +151,17 @@ To get the current running executions
 
     The executions status command parameters:
 
-    - (Optional) **include_completed** Boolean parameter, whether to include completed executions. Default is False.
+    - (Optional) **include_completed** Boolean parameter. Whether to include completed executions. Default is False.
 
 
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can get the current running executions using the direct HTTP requests:
+    You can retrieve a list of the current running executions using direct HTTP requests:
 
     .. code-block:: sh
 
        $ curl -X GET --header "Authorization: Token MY_TOKEN" https://api.faaspot.com/v1/executions/?include_completed=False
 
-    You can add to the request ``?include_completed=False`` or ``?include_completed=True``,
-    To include completed executions or not.
+    You can add ``?include_completed=False`` or ``?include_completed=True`` to the request,
+    to include completed executions, or not.

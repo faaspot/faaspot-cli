@@ -16,20 +16,20 @@ In FaaSpot, deployment is a combination of:
 
 - (Optional) A **Requirements file**, which must be in a python `pip requirements file format <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>`_.
 
-- (Optional) A **Context file**, which may contain secrets credentials that you need to be accessible in the function, but you don't want to send them in every deployment run command.
+- (Optional) A **Context file**, which might contain secrets credentials that you need to be accessible in the function, but don't want to send in every deployment run command.
 
 
 The Function
 ^^^^^^^^^^^^
 
-The function is basically a python script, that contain a main function is a specific format.
-If the python script won't have a main function in the needed format - it won't run.
+The function is basically a python script that contains a main function in a specific format.
+If the python script doesn't have a main function in the required format, it will not run.
 
-The script must contain a ``main`` function, that receive 2 parameters:
+The script must contain a ``main`` function, that receives 2 parameters:
 
-- **args** A dictionary that contain the arguments to the function, this are the parameters been sent to the deployment run command.
+- **args** A dictionary that contains the arguments to the function. These are the parameters that are sent to the deployment to run command.
 
-- **context** A dictionary of the contain the Context variables, which you set in the deployment creation command.
+- **context** A dictionary that contains the Context variables, which you set in the deployment creation command.
 
 The very basic template of the python script:
 
@@ -41,11 +41,11 @@ The very basic template of the python script:
 The Requirements
 ^^^^^^^^^^^^^^^^
 
-If your function need third-party python packages, which are available via `pip install <https://pip.pypa.io/>`_,
-you can add a Requirements, in `pip requirements file format <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>`_.
-The Requirements file is being added during the creation of the deployment.
+If your function reuires third-party python packages, which are available via `pip install <https://pip.pypa.io/>`_,
+you can add Requirements, in `pip requirements file format <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>`_.
+The Requirements file is added during the creation of the deployment.
 
-A very basic Requirements file can look like this:
+A very basic Requirements file might look like this:
 
 .. code-block:: sh
 
@@ -55,10 +55,10 @@ A very basic Requirements file can look like this:
 The Context
 ^^^^^^^^^^^
 
-The Context is a dictionary that may contain secret data to be sent to all of this specific deployment instances.
-You can create a deployment without it, in that case the context dict will be empty.
+The Context is a dictionary that might contain secret data to be sent to all of the specific deployment instances.
+You can create a deployment without it, in which case the context dict will be empty.
 
-A very basic Context file can look like this:
+A very basic Context file might look like this:
 
 .. code-block:: sh
 
@@ -73,7 +73,7 @@ Create Deployment
 -----------------
 
 To create a new deployment, you need to use the ``deployments create`` API.
-You can see info about the API arguments at :ref:`overview <deployment_overview>` section.
+You can see info about the API arguments in the :ref:`overview <deployment_overview>` section.
 
 
 ..  admonition:: CLI
@@ -93,7 +93,7 @@ You can see info about the API arguments at :ref:`overview <deployment_overview>
 
     - (Optional) **--context-file** Path to the context file
 
-    - (Optional) **--wait** Boolean parameter, whether to wait for completion. Default is False.
+    - (Optional) **--wait** Boolean parameter. Whether to wait for completion. Default is False.
 
 
 ..  admonition:: Python
@@ -111,17 +111,17 @@ You can see info about the API arguments at :ref:`overview <deployment_overview>
 
     - **--file** - Path to he file code
 
-    - (Optional) **requirements-file** Path to the requirements file
+    - (Optional) **requirements-file** Path to the Requirements file
 
-    - (Optional) **context-file** Path to the context file
+    - (Optional) **context-file** Path to the Context file
 
-    - (Optional) **wait** Boolean parameter, whether to wait for completion. Default is False.
+    - (Optional) **wait** Boolean parameter. Whether to wait for completion. Default is False.
 
 
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can create a new deployment using the direct HTTP requests:
+    You can create a new deployment using direct HTTP requests:
 
     .. code-block:: sh
 
@@ -131,9 +131,9 @@ You can see info about the API arguments at :ref:`overview <deployment_overview>
 
 
     The code argument is mandatory, the requirements and context are optional.
-    You need to provide the actual code, requirements and context - in utf-8 format.
-    To encode your text to UTF-8 format, you can use `on-line converter <https://perishablepress.com/tools/utf8-hex/>`_,
-    or using python:
+    You must provide the actual code, requirements and context in UTF-8 format.
+    To encode your text to UTF-8 format, you can use this `on-line converter <https://perishablepress.com/tools/utf8-hex/>`_,
+    or use python:
 
     .. code-block:: python
 
@@ -144,8 +144,8 @@ You can see info about the API arguments at :ref:`overview <deployment_overview>
 
 .. _run_deployment:
 
-Run Deployment
---------------
+Run a Deployment
+----------------
 
 To run a deployment, you need to use the ``deployments run`` API.
 
@@ -161,10 +161,10 @@ To run a deployment, you need to use the ``deployments run`` API.
 
     The deployments run command parameters:
 
-    - **name** The deployment name to run
-    - (Optional) **--wait** Boolean parameter, whether to wait for completion. Default is False.
+    - **name** The name of the deployment to run
+    - (Optional) **--wait** Boolean parameter. Whether to wait for completion. Default is False.
 
-    To run deployment with multiple parameters, just add them in the parameter argument, for example:
+    To run a deployment with multiple parameters, add them in the parameter argument, for example:
 
     .. code-block:: sh
 
@@ -172,13 +172,13 @@ To run a deployment, you need to use the ``deployments run`` API.
 
     As you can see in the example above, you can use ``-p`` as a shortcut for ``--parameters``
 
-    In this example we run the ``fas deployments run`` command in a blocked manner (wait until you have a response),
+    In this example, we run the ``fas deployments run`` command in a blocked manner (wait until you have a response),
     using the ``--wait`` parameter.
 
     By default, without ``--wait``, the command will run in a non-blocking manner,
-    and the ``fas deployments run`` command will return the execution id of the task.
+    and the ``fas deployments run`` command will return the execution ID of the task.
     You can then check that status of the execution task (completed or not), using the ``fas executions get`` command.
-    You can read about the execution api in the :ref:`execution <get_execution_status>` page.
+    You can read about the execution API in the :ref:`execution <get_execution_status>` page.
 
     For example:
 
@@ -191,7 +191,7 @@ To run a deployment, you need to use the ``deployments run`` API.
 ..  admonition:: Python
     :class: toggle
 
-    You can run a deployment in blocking way (wait until the execution is completed), using the python-client:
+    You can run a deployment in a blocking way (wait until the execution is completed), using the python-client:
 
     .. code-block:: python
 
@@ -201,10 +201,10 @@ To run a deployment, you need to use the ``deployments run`` API.
 
     The deployments run function parameters:
 
-    - **name** The deployment name to run
-    - (Optional) **wait** Boolean parameter, whether to wait for completion. Default is False.
+    - **name** The name of the deployment to run
+    - (Optional) **wait** Boolean parameter. Whether to wait for completion. Default is False.
 
-    If you want to run the deployment in non-blocking way, and then to check the execution status of the deployment run,
+    To run the deployment in non-blocking way, and then check the execution status of the deployment,
     you can run:
 
     .. code-block:: python
@@ -219,7 +219,7 @@ To run a deployment, you need to use the ``deployments run`` API.
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can run a deployment using using the direct HTTP requests.
+    You can run a deployment using direct HTTP requests.
     You can run deployment in a blocking way (wait until the execution is completed), with ``/sync/`` in the url.
 
     .. code-block:: sh
@@ -235,11 +235,11 @@ To run a deployment, you need to use the ``deployments run`` API.
         $ EXECUTION_ID=`sed -e 's/^"//' -e 's/"$//' <<< "$EXECUTION_ID_STR"`
         $ curl --header "Authorization: Token MY_API_TOKEN" https://api.faaspot.com/v1/executions/$EXECUTION_ID
 
-    In the above sample you can see how to run a deployment using HTTP Request,
+    In the above sample you can see how to run a deployment using an HTTP Request,
     and then how query the execution status of the deployment run task.
 
-    For the non-blocking approach, you can also use POST request, to allow you to send the parameters in the request body,
-    instead of in the request url. For example:
+    For the non-blocking approach, you can also use a POST request, to enable you to send the parameters in the request body,
+    instead of in the request URL. For example:
 
     .. code-block:: sh
 
@@ -251,33 +251,32 @@ To run a deployment, you need to use the ``deployments run`` API.
 Run Deployments In Bulk
 -----------------------
 
-Sometimes you want to run the same deployment with different arguments.
+Sometimes, you want to run the same deployment with different arguments.
 One way to do it, is to run the :ref:`run deployment <run_deployment>` multiple times, each time with different arguments.
 
-A faster way, is to use one request, with the data of all the different arguments.
-The way to do it, is to use ``deployment run_bulk`` request.
-The ``run_bulk`` require a list of group-of-parameters.
-Meaning that every item in the input list, represent a call to ``deployments run`` request, with a group-of-parameters.
+A faster way, is to use a single request, with the data of all the different arguments.
+The way to do that, is to use the ``deployment run_bulk`` request.
+The ``run_bulk`` request requires a list of group-of-parameters, meaning that every item in the input list represents a call to  the``deployments run`` request, with a group-of-parameters.
 
 
 ..  admonition:: CLI
     :class: open-toggle
 
-    You can run a bulk of deployment using the ``CLI``, for example:
+    You can run a bulk deployment using the ``CLI``, for example:
 
     .. code-block:: sh
 
         $ fas deployments run_bulk DEPLOYMENT_NAME -p "k1=v1, k2=v2" -p "k3=v3, k4=v4"
 
-    The sample above, will execute 2 tasks of ``DEPLOYMENT_NAME``.
-    One with arguments k1=v1, k2=v2. And another one with arguments k3=v3, k4=v4.
-    The result of the sample above will be a list of 2 executions id.
+    The sample above, will execute two ``DEPLOYMENT_NAME`` tasks.
+    One with the arguments k1=v1, k2=v2, and another with the arguments k3=v3, k4=v4.
+    The result of the sample above will be a list of two execution IDs.
 
 
 ..  admonition:: Python
     :class: toggle
 
-    You can run a bulk of deployment using the python-client:
+    You can run a bulk deployment using the python-client:
 
     .. code-block:: python
 
@@ -290,7 +289,7 @@ Meaning that every item in the input list, represent a call to ``deployments run
 ..  admonition:: HTTP Request
     :class: toggle
 
-    If you want to create a bulk run request using HTTP request,
+    If you want to create a bulk run request using an HTTP request,
     you will need to create a POST request to: https://api.faaspot.com/v1/deployments/DEPLOYMENT_NAME/bulk_rpc/,
     and to add to the request body the list of the parameters, in the following format: ``'[{"k1": "v1", "k2": "v2"}, {"k3": "v3", "k4": "v4"}]'``
 
@@ -299,12 +298,12 @@ Meaning that every item in the input list, represent a call to ``deployments run
        $ curl -X POST --header "Content-Type: application/json" --header "Authorization: Token MY_API_TOKEN" \
        https://api.faaspot.com:443/v1/deployments/DEPLOYMENT_NAME/bulk_rpc/ -d '[{"k1": "v1", "k2": "v2"}, {"k3": "v3", "k4": "v4"}]'
 
-    The result of the above request is a list of executions ids, of all the related deployment executions.
+    The result of the above request is a list of executions IDs of all the related deployment executions.
 
 .. note::
 
-    The ``bulk_run`` doesn't support blocking requests. The response is a list of executions ids.
-    In order to get the executions status, need to run :ref:`executions get<get_execution_status>` command.
+    The ``bulk_run`` call doesn't support blocking requests. The response is a list of executions IDs.
+    To get the executions status, you need to run the :ref:`executions get<get_execution_status>` command.
 
 
 
@@ -338,7 +337,7 @@ To delete a new deployment, you need to use the ``deployments delete`` API.
 ..  admonition:: HTTP Request
     :class: toggle
 
-    You can delete a deployment using HTTP request
+    You can delete a deployment using an HTTP request:
 
     .. code-block:: sh
 

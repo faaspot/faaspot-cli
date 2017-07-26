@@ -6,15 +6,15 @@
 
 #### What is FaaSpot?
 
-FaaSpot is a SAAS service that enables you to run functions as a service (FAAS), and reduce your monthly Cloud expenses.
+FaaSpot is a SAAS service that enables you to run Functions as a Service (FAAS), and reduce your monthly Cloud expenses.
 
 #### How can we help you make significant cost savings?
 
 You need us if you are using an expensive, powerful machine in AWS to run a small set of tasks multiple times.
 
-With FaaSpot you can replace the expensive machine with a much smaller one, and use spot instances to run functions.
-The cost of running four spot instances with a single CPU in much less then running one Amazon machine with four CPUs.
-With us you'll get the same performance, for less, much less, money.
+With FaaSpot, you can replace your expensive machine with a much smaller one, and use spot instances to run functions.
+The cost of running four spot instances with a single CPU is much less than running a single Amazon machine with four CPUs.
+With us, you'll get the same performance for less, much less, money.
 
 #### How can I use it?
 
@@ -25,9 +25,9 @@ Version compatibility: Python 2.7, 3.3-3.5
 
 > <b>Note:</b>
 >
-> The communication with the FaaSpot webserver is encrypted and secured.
+> Communication with the FaaSpot Webserver is encrypted and secured.
 
-If you haven’t already obtained a FaaSpot API key, send us a request to info@faaspot.com.
+If you haven’t already obtained a FaaSpot API key, send us a request at info@faaspot.com.
 
 ### Installation
 
@@ -41,10 +41,10 @@ pip install fas
 To test FaaSpot, you can try the following commands.
 
 ```
-# Create a CLI profile, that contains your FaaSpot token credentials.
+# Create a CLI profile that contains your FaaSpot token credentials.
 fas profiles create my_profile --username MY_USERNAME --token MY_API_TOKEN
 
-# Create hello.py sample script
+# Create a hello.py sample script
 fas deployments samples --hello
 
 # Create a new deployment with the hello.py script
@@ -58,7 +58,7 @@ fas spots add --wait
 # run the deployment
 fas deployments run hello -p "name=user1" --wait
 
-# just for the example - remove the spot
+# Just for the example - remove the spot.
 fas spots remove --wait
 ```
 
@@ -97,8 +97,8 @@ positional arguments:
     profiles            Manage profiles
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --version             show program's version number and exit
+  -h, --help            Shows this help message and exits
+  --version             Shows the  program version number and exits
 </code></pre>
 
 ### Verbose Output
@@ -106,9 +106,9 @@ optional arguments:
 The `-v/--verbose` flag is available for all commands.
 It sets the command verbosity level. There are three verbosity levels:
 
-* Running a command without the verbose flag. (This is obviously the default).
+* Running a command without the verbose flag. (This is the default).
 * Running a command with `-v` will show DEBUG log statements of fas events.
-* Running a command with `-vv` will, in addition, show DEBUG log statements of external libs, being used by fas.
+* Running a command with `-vv` will, in addition, show DEBUG log statements of external libs being used by fas.
 
 ### Configuration
 
@@ -118,28 +118,28 @@ The file is created and managed by the CLI, but you can also customize the file 
 
 ## Profiles
 
-The `fas profiles` command is used to manage your cli profiles on your local machine.
+The `fas profiles` command is used to manage your CLI profiles on your local machine.
 Each profile contain connection parameters to FaaSpot.
 To send REST API commands to FaaSpot, you need to have username and and auth credentials: Api-Token or Password.
 
-You can use the command to list, create, update, get, use, current, delete a specific profile.
+You can use the command to list, create, update, get, use, retrieve the current profile, and delete a specific profile.
 
 
 #### Commands
 
-* <b>list</b>: Retrieve all the profiles
+* <b>list</b>: Retrieves all the profiles
 
-* <b>create</b>: Create a new profile
+* <b>create</b>: Creates a new profile
 
-* <b>update</b>: Update an existing profile
+* <b>update</b>: Updates an existing profile
 
-* <b>get</b>: Retrieve a specific profile
+* <b>get</b>: Retrieves a specific profile
 
-* <b>use</b>: Use a specific profile when communicating with FaaSpot
+* <b>use</b>: Uses a specific profile when communicating with FaaSpot
 
-* <b>current</b>: Retrieve the current profile that is configured for use when communicating with FaaSpot
+* <b>current</b>: Retrieves the current profile that is configured for use when communicating with FaaSpot
 
-* <b>delete</b>: Delete an existing profile
+* <b>delete</b>: Deletes an existing profile
 
 
 ## Deployments
@@ -148,30 +148,30 @@ The `fas deployments` command is used to manage your functions.
 Each deployment must contain the function code, that you want to run.
 In addition, each deployment may contain:
 * A Requirements file, which must be in a python [pip requirements file format](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)
-* A context file, which must be a text file, where each line is in the format of: KEY=Value
+* A Context file, which must be a text file in which each line is in the format of: KEY=Value
 
 You can use the command to list, get, create, update, delete, run a specific deployment.
 
-The create, update, and run commands may take some time, therefore they start background execution in the FaaSpot server.
-The return value of the create,update, and run commands will be the execution-id, which will require you to pull request the execution-id status, until the task completes.
-Therefore, we provide the optional argument: `--wait`. Running the above commands with the `--wait` flag,
+The create, update, and run commands might take some time, therefore they start background execution in the FaaSpot server.
+The return value of the create, update, and run commands will be the execution ID, which will require you to pull request the execution-id status, until the task completes.
+Therefore, the optional argument: `--wait` is also available. Running the above commands with the `--wait` flag,
 will run the status pull requests for you, and will return the output at the end of the task.
 
 #### Commands
 
-* <b>list</b>: Retrieve all deployments
+* <b>list</b>: Retrieves all deployments
 
-* <b>create</b>: Create a new deployments
+* <b>create</b>: Creates a deployment
 
-* <b>update</b>: Update an existing deployments
+* <b>update</b>: Updates a deployment
 
-* <b>get</b>: Retrieve an existing deployment
+* <b>get</b>: Retrieves a deployment
 
-* <b>delete</b>: Delete an existing deployment
+* <b>delete</b>: Deletes a deployment
 
-* <b>run</b>: Run an existing deployment, with optional input parameters
+* <b>run</b>: Runs a deployment, with optional input parameters
 
-* <b>samples</b>: Create sample script locally, that can be used for testing the deployment process
+* <b>samples</b>: Creates a sample script locally that can be used for testing the deployment process
 
 
 ## Spots
@@ -181,22 +181,22 @@ You need at least one FaaSpot VM (spot) to run a function.
 A FaaSpot spot is like a regular VM, but costs less.
 The more spots that you have, the more times that you can run your function in a given period of time.
 
-You can use the command to list, add, get, remove, update a specific spot.
+You can use the command to list, add, get, remove, and update a specific spot.
 
 
 #### Commands
 
-* <b>list</b>: Retrieve all spots
+* <b>list</b>: Retrieves all spots
 
-* <b>add</b>: Increase the number of spots by one
+* <b>add</b>: Increases the number of spots by one
 
-* <b>update</b>: Update parameters for a given spot
+* <b>update</b>: Updates parameters for a specific spot
 
-* <b>get</b>: Retrieve info about a specific spot
+* <b>get</b>: Retrieves info about a specific spot
 
-* <b>remove</b>: Reduce the number of spots by one
+* <b>remove</b>: Reduces the number of spots by one
 
-* <b>refresh_ip</b>: Refresh spot instances public ip
+* <b>refresh_ip</b>: Refreshes a spot instance public IP
 
 
 ## Executions
@@ -207,8 +207,8 @@ You can use the command to list executions and to cancel or retrieve information
 
 #### Commands
 
-* <b>list</b>: Retrieve all executions
+* <b>list</b>: Retrieves all executions
 
-* <b>get</b>: Retrieve info for a specific execution
+* <b>get</b>: Retrieves info for a specific execution
 
-* <b>cancel</b>: Cancel an existing execution
+* <b>cancel</b>: Cancels an existing execution
