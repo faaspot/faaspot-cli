@@ -16,9 +16,9 @@ and reduce your monthly Cloud expenses.
 .. code-block:: sh
 
     $ fas spots add --wait
-    $ fas deployments samples --hello-world
-    $ fas deployments create hello --file hello-world.py
-    $ fas deployments run hello --parameters "name=user1" --wait
+    $ fas functions samples --hello-world
+    $ fas functions create hello --file hello-world.py
+    $ fas functions run hello --parameters "name=user1" --wait
 
 
 User Guide
