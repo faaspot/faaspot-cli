@@ -127,7 +127,7 @@ You can see info about the API arguments in the :ref:`overview <deployment_overv
 
        $ curl -X PUT --header "Authorization: Token MY_TOKEN" --header "Content-Type: application/json"
        --data '{"name": "DEPLOYMENT_NAME", "code": "THE_CODE", "requirements": "THE_REQUIREMENTS", "context": "THE_CONTEXT"}'
-       https://dev.faaspot.com:443/api/deployments/
+       https://api.faaspot.com/v1/deployments/
 
 
     The code argument is mandatory, the requirements and context are optional.

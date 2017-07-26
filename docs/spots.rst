@@ -54,7 +54,7 @@ To add a spot to your spot's pool, you need to use the spots API:
 
     .. code-block:: sh
 
-       $ curl -X PUT --header "Authorization: Token MY_TOKEN" https://dev.faaspot.com:443/api/spots/
+       $ curl -X PUT --header "Authorization: Token MY_TOKEN" https://api.faaspot.com:443/v1/spots/
 
 .. note::
     What is the ``wait`` argument?
@@ -105,7 +105,7 @@ To retrieve a list of all the spots that you have, use the spots list API:
 
     .. code-block:: sh
 
-       $ curl -X GET --header "Authorization: Token MY_TOKEN" https://dev.faaspot.com:443/api/spots/
+       $ curl -X GET --header "Authorization: Token MY_TOKEN" https://api.faaspot.com:443/v1/spots/
 
 
 Remove a Spot
