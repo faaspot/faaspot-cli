@@ -33,5 +33,5 @@ User Guide
     cli
     pythonclient
     spots
-    deployments
+    functions
     executions

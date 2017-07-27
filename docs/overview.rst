@@ -54,7 +54,7 @@ You can install the FaaSpot Client via `pip <https://pip.pypa.io/>`_:
     To upgrade the FaaSpot client version, run: ``pip install faaspot --upgrade``.
 
     For info about the CLI, go to the :ref:`CLI <cli>` page.
-    For info about the python library, go to the :ref:`deployments <deployments>` page.
+    For info about the python library, go to the :ref:`functions <functions>` page.
 
 
 Setting Up The Environment

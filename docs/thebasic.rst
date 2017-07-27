@@ -13,11 +13,11 @@ This VM is totally managed by FaaSpot. You can add or remove spots using the Faa
 For more info, please read  the :ref:`spots` page.
 
 
-Deployment
-==========
+Function
+========
 
-A FaaSpot deployment is a package of function to run, with optional meta-data related to 
-requirements and context. For more info, please read  the :ref:`deployments` page.
+A FaaSpot function is a package of function to run, with optional meta-data related to
+requirements and secrets that are needed for the function run. For more info, please read  the :ref:`functions` page.
 
 
 Making a Request

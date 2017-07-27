@@ -21,13 +21,13 @@ Use ``cfy -h`` to display a list of all the commands and their descriptions.
 .. code-block:: sh
 
     $ fas -h
-    usage: fas [-h] [--version] {spots,deployments,executions,profiles} ...
+    usage: fas [-h] [--version] {spots,functions,executions,profiles} ...
 
     positional arguments:
-      {spots,deployments,executions,profiles}
+      {spots,functions,executions,profiles}
                             Manages the FaaSpot account
         spots               Manages spots
-        deployments         Manages deployments
+        functions           Manages functions
         executions          Manages executions
         profiles            Manages profiles
 
