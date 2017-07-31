@@ -73,3 +73,33 @@ Create a FaaSpot profile that contains your FaaSpot token credentials.
     which contain the connection configuration to FaaSpot.
 
     You can also manually edit the ``~/.faaspot/conf.yaml`` file.
+
+
+.. note::
+    ``fas`` supports tab completion in bash shells via the argcomplete package.
+
+     To enable it, add
+
+     .. code-block:: sh
+
+          eval "$(register-python-argcomplete fas)"
+
+     to the ``~/.basrc`` file. You can add it manually or by running
+
+     .. code-block:: sh
+
+          $ echo -e '\neval "$(register-python-argcomplete fas)"\n' >> ~/.bashrc
+
+     and then run ``source ~/.bashrc``.
+     You can test that it works by running
+
+     .. code-block:: sh
+
+          $ fas sp<TAB>
+
+     It should complete to
+
+     .. code-block:: sh
+
+          $ fas spots
+
