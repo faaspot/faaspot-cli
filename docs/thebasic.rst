@@ -16,8 +16,8 @@ For more info, please read  the :ref:`spots` page.
 Function
 ========
 
-A FaaSpot function is a package of function to run, with optional meta-data related to
-requirements and secrets that are needed for the function run. For more info, please read  the :ref:`functions` page.
+A FaaSpot function is a package of function to run, with optional meta-data of
+secrets that are needed for the function run. For more info, please read  the :ref:`functions` page.
 
 
 Making a Request

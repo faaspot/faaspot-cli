@@ -14,8 +14,6 @@ In FaaSpot, function is a combination of:
 
 - The **function code** that you want to run.
 
-- (Optional) A **Requirements file**, which must be in a python `pip requirements file format <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>`_.
-
 - (Optional) A **Context file**, which might contain secrets credentials that you need to be accessible in the function, but don't want to send in every functions run command.
 
 
@@ -37,19 +35,6 @@ The very basic template of the python script:
 
     def main(args, context):
         return ''
-
-The Requirements
-^^^^^^^^^^^^^^^^
-
-If your function reuires third-party python packages, which are available via `pip install <https://pip.pypa.io/>`_,
-you can add Requirements, in `pip requirements file format <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>`_.
-The Requirements file is added during the creation of the function.
-
-A very basic Requirements file might look like this:
-
-.. code-block:: sh
-
-    Jinja2==2.7.2
 
 
 The Context
@@ -89,8 +74,6 @@ You can see info about the API arguments in the :ref:`overview <functions_overvi
 
     - **--file** - Path to he file code
 
-    - (Optional) **--requirements-file** Path to the requirements file
-
     - (Optional) **--context-file** Path to the context file
 
     - (Optional) **--wait** Boolean parameter. Whether to wait for completion. Default is False.
@@ -111,8 +94,6 @@ You can see info about the API arguments in the :ref:`overview <functions_overvi
 
     - **--file** - Path to he file code
 
-    - (Optional) **requirements-file** Path to the Requirements file
-
     - (Optional) **context-file** Path to the Context file
 
     - (Optional) **wait** Boolean parameter. Whether to wait for completion. Default is False.
@@ -126,12 +107,12 @@ You can see info about the API arguments in the :ref:`overview <functions_overvi
     .. code-block:: sh
 
        $ curl -X PUT --header "Authorization: Token MY_TOKEN" --header "Content-Type: application/json"
-       --data '{"name": "FUNCTION_NAME", "code": "THE_CODE", "requirements": "THE_REQUIREMENTS", "context": "THE_CONTEXT"}'
+       --data '{"name": "FUNCTION_NAME", "code": "THE_CODE", "context": "THE_CONTEXT"}'
        https://api.faaspot.com/v1/functions/
 
 
-    The code argument is mandatory, the requirements and context are optional.
-    You must provide the actual code, requirements and context in UTF-8 format.
+    The code argument is mandatory, the context is optional.
+    You must provide the actual code and context in UTF-8 format.
     To encode your text to UTF-8 format, you can use this `on-line converter <https://perishablepress.com/tools/utf8-hex/>`_,
     or use python:
 
