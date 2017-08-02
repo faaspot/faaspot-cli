@@ -205,7 +205,7 @@ To run a function, you need to use the ``functions run`` API.
 
     .. code-block:: sh
 
-       $ curl -X PUT --header "Authorization: Token MY_API_TOKEN"
+       $ curl -X GET --header "Authorization: Token MY_API_TOKEN"
        https://api.faaspot.com/v1/sync/functions/FUNCTION_NAME/rpc/?PARAMETER_1=VALUE_1&PARAMETER_2=VALUE_2
 
     You can also run the function in non-blocking way, without ``/sync/`` in the url:
